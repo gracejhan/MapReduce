@@ -1,0 +1,11 @@
+Task9
+
+Data Quality Issues
+
+Jungwoo Han (jh5990@nyu.edu)
+
+1. Some data included commas in the content such as the street names (Ex. "NEEDHA, AVENUE3"). This was a factor for decreasing the data quality since we are using the CSV format. When parsing words by commas, there is no distinction between the commas that are actually inside the data and the commas that come from the CSV format. Therefore, these data resulted longer columns in the line than they should have and irrelevant data is sorted to certain columns(we can see street names appearing on vehicle_make). There were a total of 1082 commas in the file "parking-violations.csv". I thought of dropping all the data with commas, but 1082 was not a small number so I did not drop those. Instead, I resolved this issue by using the "csv" library to ignore commas in the data.
+
+2. Data containing symbols decreased the data quality. For example, "GMC" and "GMC." were considered as different vehicle maker while they should be considered as the same values. "H D" and "H-D" were also considered as separate makers.
+
+3. There were many blank data. Some data may be just missing data, but some may have meanings for being blank. Separating the blank data as 'mistakenly untyped' category and 'could not be found' category may create some meaningful data. 
